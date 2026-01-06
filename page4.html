@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .container {
+    text-align: center;
+    color: white;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-shadow: 0 0 10px white;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px white;
+    }
+    to {
+      text-shadow: 0 0 25px #fff;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+</style>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="center">
+
+<h1>Will You Be Mine? 💖</h1>
+
+<button onclick="yes()">YES 😍</button>
+<button id="no" onmouseover="move()">NO 😜</button>
+
+<audio autoplay loop>
+  <source src="music/love.mp3">
+</audio>
+
+<script>
+function yes(){
+ alert("Yaaay ❤️ I Love You Forever Tiddi G 🫠❤️!");
+}
+function move(){
+ let x=Math.random()*300;
+ let y=Math.random()*300;
+ document.getElementById("no").style.transform=`translate(${x}px,${y}px)`;
+}
+</script>
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+document.body.addEventListener("click", () => {
+  music.play();
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 0.7) {
+      vol += 0.05;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+});
+</script>
+</body>
+<audio id="bgMusic" autoplay loop>
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+</html>
